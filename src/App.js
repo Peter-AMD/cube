@@ -49,14 +49,12 @@ const BoxMesh = ({ position, color = 'lightblue', args }) => {
 
 const GroupBoxMesh = ({ args }) => {
   const ref = useRef(null);
-  // useFrame(() => (ref.current.rotation.y = ref.current.rotation.x += 0.002));
+  useFrame(() => (ref.current.rotation.y = ref.current.rotation.x += 0.002));
 
   return (
-    <group
-    // ref={ref}
-    >
-      <BoxMesh position={[0, 1.19, 0]} args={[2, 0.8, 2]} color="#4C7485" />
-      <BoxMesh position={[0, 0, 0]} args={[2, 1.5, 2]} color="#003746" />
+    <group ref={ref}>
+      <BoxMesh position={[0, 1.19, 0]} args={[2, 0.8, 2]} color="#60A5BF" />
+      <BoxMesh position={[0, 0, 0]} args={[2, 1.5, 2]} color="#3D7E98" />
     </group>
   );
 };
@@ -65,8 +63,8 @@ const Bulb = (props) => {
   return (
     <mesh {...props}>
       <pointLight castShadow />
-      <sphereBufferGeometry args={[0.2]} />
-      <meshPhongMaterial emissive={'yellow'} />
+      {/* <sphereBufferGeometry args={[0.2]} /> */}
+      {/* <meshPhongMaterial emissive={'yellow'} /> */}
     </mesh>
   );
 };
@@ -95,7 +93,7 @@ function App() {
           <GroupBoxMesh />
           <Bulb position={[3, 3, 0]} />
           <OrbitControls />
-          <axesHelper args={[5]} />
+          {/* <axesHelper args={[5]} /> */}
         </Suspense>
       </Canvas>
     </>
